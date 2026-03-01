@@ -66,3 +66,10 @@ What I learned:
 - `while(true)` loops are perfect for retry logic — keep asking until valid
 - `Y` and `y` are different characters — case sensitivity matters!
 - Static methods don't need an object instance — perfect for utility classes
+
+## 🚀 How to run it
+Clone the repo and open it in IntelliJ IDEA. Navigate to the
+exercise you want to run and execute the `Main.java` class.
+
+`git clone https://github.com/Borgesjesk/S1.02-Exceptions.git`
+```

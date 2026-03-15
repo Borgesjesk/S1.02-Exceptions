@@ -72,3 +72,12 @@ Clone the repo and open it in IntelliJ IDEA. Navigate to the
 exercise you want to run and execute the `Main.java` class.
 
 `git clone https://github.com/Borgesjesk/S1.02-Exceptions.git`
+
+## 🛠️ Key Refactors & Technical Improvements
+
+To ensure a robust user experience and maintainable code, I implemented several key improvements based on common Java pitfalls:
+
+* **Scanner Buffer Management:** Replaced `nextInt()` and `nextDouble()` with `Integer.parseInt(scanner.nextLine().trim())`. This prevents the "skipped input" bug caused by leftover newline characters in the buffer.
+* **Input Sanitization:** Standardized the use of `.trim()` across all `ConsoleReader` methods to handle accidental user whitespace gracefully.
+* **Data Integrity:** Refactored the `Product` class to be **immutable**, ensuring thread safety and preventing unintended state changes after instantiation.
+* **Best Practices:** Updated the `Sale` class to use the `List` interface instead of a concrete `ArrayList` implementation, adhering to the principle of "programming to an interface."

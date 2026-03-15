@@ -4,16 +4,17 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleReader {
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int readInt(String message) {
         while (true) {
             System.out.println(message);
             try {
-                return scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Format error. Please try again.");
-                scanner.nextLine();
+                int value = Integer.parseInt(scanner.nextLine().trim());
+                return value;
+            } catch (NumberFormatException e) {
+                System.out.println("Format error. Please enter a valid integer.");
             }
         }
     }
@@ -22,10 +23,10 @@ public class ConsoleReader {
         while (true) {
             System.out.println(message);
             try {
-                return scanner.nextDouble();
-            } catch (InputMismatchException e) {
-                System.out.println("Format error. Please try again.");
-                scanner.nextLine();
+                double value = Double.parseDouble(scanner.nextLine().trim());
+                return value;
+            } catch (NumberFormatException e) {
+                System.out.println("Format error. Please enter a valid number.");
             }
         }
     }
@@ -33,11 +34,10 @@ public class ConsoleReader {
     public static char readChar(String message) {
         while (true) {
             System.out.println(message);
-            String input = scanner.nextLine();
+            String input = scanner.nextLine().trim();
             try {
                 if (input.length() != 1) {
-                    throw new InvalidInputException(
-                            "Please enter exactly one character.");
+                    throw new InvalidInputException("Please enter exactly one character.");
                 }
                 return input.charAt(0);
             } catch (InvalidInputException e) {
@@ -49,12 +49,11 @@ public class ConsoleReader {
     public static boolean readYesNo(String message) {
         while (true) {
             System.out.println(message);
-            String input = scanner.nextLine();
+            String input = scanner.nextLine().trim();
             try {
                 if (input.equals("y")) return true;
                 if (input.equals("n")) return false;
-                throw new InvalidInputException(
-                        "Please enter 'y' or 'n'.");
+                throw new InvalidInputException("Please enter 'y' or 'n'.");
             } catch (InvalidInputException e) {
                 System.out.println("Error: " + e.getMessage());
             }

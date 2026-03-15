@@ -72,4 +72,3 @@ Clone the repo and open it in IntelliJ IDEA. Navigate to the
 exercise you want to run and execute the `Main.java` class.
 
 `git clone https://github.com/Borgesjesk/S1.02-Exceptions.git`
-```

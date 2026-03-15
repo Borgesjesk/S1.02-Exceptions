@@ -1,27 +1,25 @@
 package cat.itacademy.s1_02.n1.ex1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sale {
-    private ArrayList<Product> products = new ArrayList<>();
-    private double totalPrice;
+
+    private final List<Product> products = new ArrayList<>();
 
     public void addProduct(Product product) {
         products.add(product);
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void calculateTotal() {
+    public double calculateTotal() {
         if (products.isEmpty()) {
             throw new EmptySaleException();
         }
 
-        totalPrice = 0;
-        for (Product p : products) {
-            totalPrice += p.getPrice();
+        double total = 0;
+        for (Product product : products) {
+            total += product.getPrice();
         }
+        return total;
     }
 }

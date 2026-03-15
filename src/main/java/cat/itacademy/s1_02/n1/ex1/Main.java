@@ -20,8 +20,8 @@ public class Main {
         sale.addProduct(new Product("Keyboard", 75.00));
 
         try {
-            sale.calculateTotal();
-            System.out.println("Total: " + sale.getTotalPrice());
+            double total = sale.calculateTotal();
+            System.out.println("Total: " + total);
         } catch (EmptySaleException e) {
             System.out.println(e.getMessage());
         }
